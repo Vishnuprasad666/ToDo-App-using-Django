@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+    
+    {% block base %}
+
+    <h1 class="p-5">Welcome to ToDo App, <span class="text-primary">{{request.user}}</span></h1>
+    {% if messages %}
+    {% for i in messages %}    
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success">
+            {{ i }}
+            </div>
+    {% endif %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+            <div class="alert alert-info">
+            {{ i }}
+            </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    
+    {% endblock base %}

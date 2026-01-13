@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+<h1 class="text-center p-3">Update Todo</h1>
+{% if messages %}
+{% for i in messages %}
+<div class="alert alert-warning">
+    {{ i }}
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="d-flex justify-content-center">
+    <div class="w-50 bg-light border border-3 p-3">
+        <form action="" method="post">
+            {% csrf_token %}
+            <table class="table">
+                {{form.as_table}}
+            </table>
+            <div class="d-flex justify-content-evenly">
+                <button class="btn btn-primary">Update</button>
+                <a href="{% url 'tdlist' %}" class="btn btn-warning">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock base %}
